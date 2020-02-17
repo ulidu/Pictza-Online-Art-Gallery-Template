@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pictza</title>
+    <link rel="stylesheet" type="text/css" href="css/pictzastyle.css">
+</head>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI Light";
+    }
+
+    .top-container {
+        background;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .header {
+        padding: 0.4px 16px;
+        background: #209585;
+        color: #f1f1f1;
+    }
+
+    .content {
+        padding: 16px;
+        background: #E1E1E1;
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    .sticky+.content {
+        padding-top: 102px;
+    }
+
+    .button1 {
+        border-radius: 4px;
+        background-color: #f4511e;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 28px;
+        padding: 20px;
+        width: 200px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .button1 span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .button1 span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .button1:hover span {
+        padding-right: 25px;
+    }
+
+    .button1:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+    a {
+        color: #FBFBFB;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
+
+    }
+
+    /* Start - Slidng images - Crousel */
+
+    .gallery-item {
+        float: left;
+        width: 100%;
+        height: 0;
+        padding-bottom: 19%;
+        overflow: hidden;
+
+    }
+
+    .slider-container {
+        overflow: hidden;
+    }
+
+    .slide-holder {
+        width: 382%;
+        position: ;
+        animation: scroller 10s infinite;
+        animation-direction: alternate;
+        animation-delay: 2s;
+        animation-timing-function: ease-in-out;
+    }
+
+    @keyframes scroller {
+        0% {
+            transform: translateX(0);
+        }
+        10% {
+            transform: translateX(0);
+        }
+        30% {
+            transform: translateX(-20%);
+        }
+        40% {
+            transform: translateX(-20%);
+        }
+        60% {
+            transform: translateX(-57%);
+        }
+        70% {
+            transform: translateX(-57%);
+        }
+        90% {
+            transform: translateX(-75%);
+        }
+        100% {
+            transform: translateX(-75%);
+        }
+    }
+
+    /* End - Slidng images - Crousel */
+
+    /* Start - Category Overlay */
+
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    .overlay-content {
+        position: relative;
+        top: 15%;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .overlay a:hover,
+    .overlay a:focus {
+        color: #f1f1f1;
+    }
+
+    .overlay .closebtn {
+        position: absolute;
+        top: 10px;
+        right: 45px;
+        font-size: 60px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .overlay a {
+            font-size: 20px
+        }
+        .overlay .closebtn {
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
+        }
+    }
+
+    /* End - Category Overlay */
+
+    /* Start - About us */
+
+    h2 {
+        background-color: #209585;
+        padding: 20px;
+        font-family: verdana;
+        color: lightgray;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    h3 {
+        border: 3px solid #209585;
+        padding: 2px;
+    }
+
+    p {
+        padding: 3px;
+    }
+
+</style>
+
+<body>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/abstract.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Abstract</div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/nature.jpg" alt="Avatar" class="image23">
+
+
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Nature</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/animals.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Animals</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/decorative.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Decoratives</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/photo.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Photography</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abstract</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nature</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Animals</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Decoratives</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Photography</font>
+
+            </p>
+
+
+
+
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/history.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Historical</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/child.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Children</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/scenary.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Scenary</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/landscape.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Land Art</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/conceptual.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Conceptual</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Historical</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Children</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Scenary</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Land Art</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Conceptual</font>
+
+
+            </p>
+
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/fantasy.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Fastasy</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/botanical.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Botanical</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/grass.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Grass</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/magic.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Magic</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/portrait.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Portrait</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fastasy</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Botanical</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Grass</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Magic</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Portrait</font>
+
+
+            </p>
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/history.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Historical</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/child.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Children</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/scenary.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Scenary</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/landscape.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Land Art</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/conceptual.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Conceptual</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Historical</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Children</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Scenary</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Land Art</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Conceptual</font>
+
+
+            </p>
+
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/abstract.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Abstract</div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/nature.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Nature</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/animals.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Animals</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/decorative.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Decoratives</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/photo.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Photography</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abstract</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nature</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Animals</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Decoratives</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Photography</font>
+
+            </p>
+
+
+
+            <br>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    </div>
+    </div>
+    <div class="top-container">
+
+        <a href=index.html><img src="images/p.jpg" width=6% height=6%>
+            <img src="images/pictza.png"></a>
+
+    </div>
+
+    <a href="login.html">
+        <div class="topright">
+            <img src="images/user.png" width=55% height=55% class="imageho">
+        </div>
+    </a>
+
+
+    <div class="topright1">
+        <a href="cart.html"><img src="images/cart.png" width=22% height=22% class="imageho">
+        </div>
+    </a>
+
+        <div class="topright2">
+            <a href="ItemSearch.html"><img src="images/search.png" width=16% height=16% class="imageho">
+        </div></a>
+
+
+
+            <div class="header" id="myHeader" style="z-index: +20">
+                <p align="center">
+                    <font face="Segoe UI Light" size=5>
+                        <a href=index.html> Home </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a span style="cursor:pointer" onclick="openNav()"> Categories </span></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=artists.html> Artists </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=deals.html> Today's Deals </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=selling.html> Selling </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=HelpCenter.html> Help Center </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=about.html> About Us</a>
+                </p>
+            </div>
+            <br>
+
+            <div class="about">
+                <img align="left" src="images/sun.jpg" width=15% height=10%>
+                <img src="images/boat.jpg" width=18.9%>
+                <img src="images/pictza.jpg" width=30%>
+                <img align="right" src="images/sun.jpg" width=15% height=10%>
+                <img align="right" src="images/elephant.jpg" width=18.8% height=10%>
+                <h2>
+                    <b><u>WE ARE ART.!</u></b>
+                </h2>
+                <p align="center">
+                    We exist so you can have art love. This means giving you easy access to incredible art images and top-notch craftsmanship. Because when you find art you love, you'll love your space more and that's what it's all about.
+                </p>
+                <br>
+
+                <h2>
+                    <b>We Love Art...</b>
+
+                </h2>
+                <p align="center">
+                    Having served millions customers in about 150 countries. The <b>Pictza</b> was founded in 2018 with one goal, that to help people find the art they love so they can love their spaces more. We serve to include national retail partners, museums, hotels, interior designers amd many more.
+                </p>
+                <p align="center">
+                    Limited edition prints, hand printed originals and other services that easy to discovor. We belive art is dynamic, personal and connected to the now and the experience of buying & living with it should be too.
+                </p>
+
+
+
+                <h3>
+                    <b>Incredible art every time.</b>
+                </h3>
+                <p>
+                    We work with passion to bring you the world's largest art collection. Whatever your interest, your decor style, your inspiration we are sure to have that piece you can't live without.
+                </p>
+                <br>
+                <h3>
+                    <b>Delight at every step.</b>
+                </h3>
+                <p>
+                    We belive art is dynamic, personal & connected to now, and the experience of buying & living with it should be too. From the movwment you browse our site to the day your art is delivered. Our team has one goal in mind.
+                </p>
+                <br>
+                <h3>
+                    <b>Get inspired, Be inspired.</b>
+                </h3>
+                <p>
+                    You may know what art is rigth for you and your space or you may need guidence to discover what you love. Either way, we've got all sorts of tools to help you explore, experiment & express yourself.
+                </p>
+                <h3>
+                    <b>Galleries</b>
+                </h3>
+                <p>
+                    A full roster of worldwide galleries alternative art spaces searchable by keyword & neighborhood. You never have go anywhare else for gallery or museum info.
+                </p>
+                <h3>
+                    <b>Art</b>
+                </h3>
+                <p>
+                    The <b>Pictza</b> is one of kind art exhibition that features the best in contemporary art.
+                </p>
+                <hr>
+                <hr>
+                <pre>
+    	<p>
+    	<b>Pictza Headquarters,
+    	No. 46/1,
+    	Mihidu Mawatha,
+    	Kurunegala, (60000)
+    	Sri Lanka.
+    	(+94 372222000)</b>
+
+    	</p>
+    	</pre>
+                <hr>
+
+            </div>
+
+
+
+
+
+            <p></p>
+
+</body>
+
+</html>

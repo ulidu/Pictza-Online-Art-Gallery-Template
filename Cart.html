@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        /* IE10 */
+        display: flex;
+        -ms-flex-wrap: wrap;
+        /* IE10 */
+        flex-wrap: wrap;
+        margin: 0 -16px;
+    }
+
+    .col-25 {
+        -ms-flex: 25%;
+        /* IE10 */
+        flex: 25%;
+
+    }
+
+    .col-50 {
+        -ms-flex: 50%;
+        /* IE10 */
+        flex: 50%;
+
+    }
+
+    .col-75 {
+        -ms-flex: 75%;
+        /* IE10 */
+        flex: 75%;
+    }
+
+    .col-25,
+    .col-50,
+    .col-75 {
+        padding: 0 16px;
+    }
+
+    .container {
+        background-color: #f2f2f2;
+        padding: 5px 20px 15px 20px;
+        border: 1px solid lightgrey;
+        border-radius: 3px;
+    }
+
+    input[type=text] {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid black;
+        border-radius: 3px;
+
+    }
+
+    label {
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .icon-container {
+        margin-bottom: 20px;
+        padding: 7px 0;
+        font-size: 24px;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        width: 100%;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 17px;
+    }
+
+    .btn:hover {
+        background-color: #45a049;
+    }
+
+    a {
+        color: #2196F3;
+    }
+
+    hr {
+        border: 1px solid lightgrey;
+    }
+
+    span.price {
+
+        color: grey;
+        margin-left: 110px;
+    }
+
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+
+    @media (max-width: 800px) {
+        .row {
+            flex-direction: column-reverse;
+        }
+        .col-25 {
+            margin-bottom: 20px;
+        }
+
+    }
+
+    /* The container */
+
+    .containercb {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+
+    .containercb input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    /* Create a custom checkbox */
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+    }
+
+    /* On mouse-over, add a grey background color */
+
+    .containercb:hover input~.checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+
+    .containercb input:checked~.checkmark {
+        background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+
+    .containercb input:checked~.checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+
+    .containercb .checkmark:after {
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+</style>
+
+<head>
+    <title>Pictza</title>
+    <link rel="stylesheet" type="text/css" href="css/pictzastyle.css">
+</head>
+
+<body>
+
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/abstract.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Abstract</div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/nature.jpg" alt="Avatar" class="image23">
+
+
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Nature</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/animals.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Animals</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/decorative.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Decoratives</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/photo.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Photography</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abstract</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nature</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Animals</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Decoratives</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Photography</font>
+
+            </p>
+
+
+
+
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/history.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Historical</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/child.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Children</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/scenary.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Scenary</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/landscape.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Land Art</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/conceptual.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Conceptual</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Historical</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Children</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Scenary</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Land Art</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Conceptual</font>
+
+
+            </p>
+
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/fantasy.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Fastasy</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/botanical.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Botanical</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/grass.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Grass</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/magic.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Magic</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/portrait.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Portrait</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fastasy</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Botanical</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Grass</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Magic</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Portrait</font>
+
+
+            </p>
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/history.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Historical</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/child.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Children</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/scenary.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Scenary</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/landscape.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Land Art</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/conceptual.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Conceptual</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Historical</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Children</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Scenary</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Land Art</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Conceptual</font>
+
+
+            </p>
+
+
+
+            <div class="container23" style="margin-left : 120px;
+                margin-right: 35px; display: inline-block;">
+
+                <img src="images/Category/abstract.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Abstract</div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/nature.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Nature</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/animals.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Animals</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style=" display: inline-block">
+
+                <img src="images/Category/decorative.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Decoratives</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="container23" style="margin: 35px; display: inline-block">
+
+                <img src="images/Category/photo.jpg" alt="Avatar" class="image23">
+
+                <div class="overlay34">
+                    <a href="ItemSearch.html">
+                        <div class="text">Photography</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+            <p style="margin-top: -25px">
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abstract</font>
+                <font face="Segoe UI Light" color=white size=5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nature</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Animals</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Decoratives</font>
+                <font face="Segoe UI Light" size=5 color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Photography</font>
+
+            </p>
+
+
+
+            <br>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    </div>
+    </div>
+    <div class="top-container">
+
+        <a href=index.html><img src="images/p.jpg" width=6% height=6%>
+            <img src="images/pictza.png"></a>
+
+    </div>
+
+    <a href="login.html">
+        <div class="topright">
+            <img src="images/user.png" width=55% height=55% class="imageho">
+        </div>
+    </a>
+
+
+    <div class="topright1">
+        <a href="cart.html"><img src="images/cart.png" width=22% height=22% class="imageho">
+        </div>
+    </a>
+
+        <div class="topright2">
+            <a href="ItemSearch.html"><img src="images/search.png" width=16% height=16% class="imageho">
+        </div></a>
+
+
+
+            <div class="header" id="myHeader" style="z-index: +20">
+                <p align="center">
+                    <font face="Segoe UI Light" size=5>
+                        <a href=index.html> Home </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a span style="cursor:pointer" onclick="openNav()"> Categories </span></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=artists.html> Artists </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=deals.html> Today's Deals </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=selling.html> Selling </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=HelpCenter.html> Help Center </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                        <a href=about.html> About Us</a>
+                </p>
+            </div>
+            <div style="background-image: url(images/painter.jpg); background-color:black;  background-attachment: fixed; background-position: center; display: block; margin: 0; padding: 0; overflow-x: hidden;">
+                <h2 style=" text-align: center">Billing details and Cart</h2>
+
+                <div class="row">
+                    <div class="col-75">
+                        <div class="container" style="width: 800px;margin-left: 80px;">
+                            <form action="/action_page.php" style="margin-left: 40px; margin-right:-40px;">
+
+                                <div class="row">
+                                    <div class="col-50">
+                                        <h3>Billing Address</h3>
+                                        <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                        <input type="text" style="background-color: black; color: aliceblue" id="fname" name="firstname" placeholder="Enter your full name ">
+                                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                        <input type="text" style="background-color: black;color: aliceblue" id="email" name="email" placeholder="Enter email address">
+                                        <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                                        <input type="text" style="background-color: black;color: aliceblue" id="adr" name="address" placeholder="Enter address">
+                                        <label for="city"><i class="fa fa-institution"></i> City</label>
+                                        <input type="text" style="background-color: black;color: aliceblue" id="city" name="city" placeholder="Enter city">
+
+                                        <div class="row">
+                                            <div class="col-50">
+                                                <label for="state">State</label>
+                                                <input type="text" style="background-color: black;color: aliceblue" id="state" name="state" placeholder="State">
+                                            </div>
+                                            <div class="col-50" style=" margin-left: -100px;">
+                                                <label for="zip">Zip</label>
+                                                <input style="background-color: black;color: aliceblue" type="text" id="zip" name="zip" placeholder="zipcode">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-50">
+                                        <h3>Payment</h3>
+                                        <label for="fname">Accepted Cards</label>
+                                        <div class="icon-container">
+                                            <img src=images/credit-cards.png width=250px>
+
+                                        </div>
+                                        <label for="cname">Name on Card</label>
+                                        <input style="background-color: black;color: aliceblue" type="text" id="cname" name="cardname" placeholder="Name as on the card">
+                                        <label for="ccnum">Credit card number</label>
+                                        <input style="background-color: black;color: aliceblue" type="text" id="ccnum" name="cardnumber" placeholder="Credit card number">
+                                        <label for="expmonth">Exp Month</label>
+                                        <input style="background-color: black;color: aliceblue" type="text" id="expmonth" name="expmonth" placeholder=" Expiry month">
+                                        <div class="row">
+                                            <div class="col-50">
+                                                <label for="expyear">Exp Year</label>
+                                                <input style="background-color: black;color: aliceblue" type="text" id="expyear" name="expyear" placeholder="Ex year">
+                                            </div>
+                                            <div class="col-50" style=" margin-left: -120px;">
+                                                <label for="cvv">CVV</label>
+                                                <input style="background-color: black;color: aliceblue" type="text" id="cvv" name="cvv" placeholder="CVV">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <label>
+        </label>
+                                <label class="containercb">Shipping address same as billing
+      <input type="checkbox" checked="checked" >
+            <span class="checkmark"></span>
+        </label>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-25">
+                        <div class="container" style="width: 380px; margin-left: -140px">
+
+                            <h4 style="margin-left: 40px">No of cart items <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b >3</b></span></h4>
+                            <img src="images/Product/p1.jpg" width="20%" style="margin-left: 40px; border-radius: 5px;">
+                            <p style="margin-left: 20px; margin-top: -5px;" color=black>Flower Garden &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $102.84</span>
+                            </p>
+                            <hr>
+                            <img src="images/item2.jpg" width="20%" style="margin-left: 40px; border-radius: 5px;">
+                            <p style="margin-left: 20px;margin-top: -5px;">Orchid Mosaic &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $224.28 </span>
+                            </p>
+                            <hr><img src="images/hgh.jpg" width="20%" style="margin-left: 20px; border-radius: 5px;">
+                            <p style="margin-left: 20px;margin-top: -5px;">Corney &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $584.18</span>
+                            </p>
+
+                            <hr>
+                            <p style="margin-left: 20px">Total style&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>$911.30</b></span>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div style="background-image: url(images//Black-and-White-Background-63.jpg); background-color:black;  background-attachment: fixed; background-position: center; display: block; margin: 0; padding: 0; overflow-x: hidden; margin-bottom: 360px;">
+
+                    <div class="contentbid2">
+                        <div class="slideshow-container2" style=" width:30%;">
+
+                            <div class="mySlides fade">
+
+                                <img src="images/bid2.jpg">
+
+                                <div class="text">
+                                    <p style="margin-top:-20px; ">
+                                        <font color=white face="Segoe UI Light " size=10>
+                                            Time Left</p>
+
+                                    <p id="demo" style="margin-top: -40px"></p>
+                                </div>
+                            </div>
+
+                            <div class="mySlides fade">
+
+                                <img src="images/box.jpg">
+                                <div class="text">
+                                    <p style="margin-top:-20px; ">
+                                        <font color=white face="Segoe UI Light " size=10>
+                                            Time Left</p>
+
+                                    <p id="demo" style="margin-top: -40px"></p>
+                                </div>
+                            </div>
+
+                            <div class="mySlides fade">
+
+                                <img src="images/statue-3520416_1920%20-%20Copy.jpg">
+                                <div class="text">
+                                    <p style="margin-top:-20px; ">
+                                        <font color=white face="Segoe UI Light " size=10>
+                                            Time Left</p>
+
+                                    <p id="demo" style="margin-top: -40px"></p>
+                                </div>
+                            </div>
+
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                        </div>
+                        <br>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="content12345">
+
+                    <p align="center ">
+
+                        <font face="Segoe UI Light " size=10>Want help with choosing right frames ?</p>
+                    </font>
+                    </p>
+
+                    <p align="center " style="margin-top: -30px;margin-bottom: -50px;z-index: +5;">
+
+                        <font face="Segoe UI Light " size=6>Ask Experts</p>
+                    </font>
+                    </p>
+
+
+
+
+                    <div style="display: inline-block;width:30%;margin-left: 50px;">
+
+                        <p align=center>
+
+                            <font face="Segoe UI Light" size=7 color=#A3A3A3>Our Guarantee...</font>
+                        </p>
+                        <hr>
+                        <p align=center style="line-height: 18px">
+                            <font face="Segoe UI Light" size=4>It's simple; if you are not happy, we are also not happy. Connecting people with art they love is what we're all about. If you don't love it, return it. It's just that easy.</font>
+                        </p>
+                    </div>
+
+                    <div style="display: inline-block;width:30%;">
+                        <p align=center>
+                            <font color=#A3A3A3 face="Segoe UI Light" size=7>Find The Perfect Frame...</font>
+                        </p>
+                        <hr>
+                        <p align=center style="line-height: 18px">
+                            <font face="Segoe UI Light" size=4>The world "art" is right there in our name. Also over 200 handcrafted frames, plus canvas, wood mount, and more. All at around 40% less than a custom frame shop.</font>
+                        </p>
+
+                    </div>
+
+                    <div style="display: inline-block;width:30%;">
+                        <p align=center>
+                            <font color=#A3A3A3 face="Segoe UI Light" size=7>The Right Art..</font>
+                        </p>
+                        <hr>
+                        <p align=center style="line-height: 18px">
+                            <font face="Segoe UI Light" size=4>Sure we have millions of prints in wide variety of styles & we can help you brows by genre, by subject, by color, you name it. But what we really love is finding art that's right for you.</font>
+                        </p>
+                    </div>
+
+
+
+
+
+
+
+
+                    <form align=center style="z-index: +5;">
+                        <a href="HelpCenter.html" style="z-index: +5;">
+                <button onclick="href='HelpCenter.html'" class="button1" style="z-index: +5;"> 💬 &nbsp; Chat Now </button></a>
+                    </form>
+
+
+
+                </div>
+
+                <div style="background-image: url(images/black_texture-wallpaper-1366x768.jpg); background-color:black;  background-attachment: fixed; background-position: center; display: block; margin: 0; padding: 0; overflow-x: hidden;">
+
+                    <div style="display:inline-block; width:30%;">
+                        <p style="margin-left: 50px; text-align: center">
+                            <font face="Segoe UI Light " size=8> 100% Satisfaction Guaranteed </p>
+                        <p align=center>
+
+                        </p>
+                        </font>
+
+                        <p align=center style="margin-left: 50px;margin-top: -12px; line-height: 15px;">
+                            <font face="Segoe UI Light " size=3>We want you to be completely satisfied with every purchase you make. If you are in any way dissatisfied with a product you ordered, we’ll exchange it, replace it or refund your money within 30 days of purchase. Simply email us the problem, and we’ll take care of you. Or call us at 94-888-258-842 if you'd like further clarification.</p>
+                        </b>
+                        <p align=center style="margin-left: 50px;margin-top: 5px; line-height: 15px;">
+                            <font face="Segoe UI Light " size=5px>Subscribe to our Newsletter</b>
+                        </p>
+                        </font>
+
+                        <palign=center style="margin-left: 65px;margin-top: 5px; line-height: 15px;">
+                            <font face="Segoe UI Light " size=8><input type="text" maxleth="18" align="center" id="input" name="input" class="input" placeholder="Enter your e-mail Address" style="border:0;outline:none; width:80%; height:50%; font-size:20px; font-family:Segoe UI Light;">
+
+                                <form style="z-index: +5; margin-left: 165px;">
+                                    <a href="ItemSearch.html" style="z-index: +5;"><button class="button1" style="z-index: +5;background-color: #2C2C2C;"> Subscribe </button></a>
+                                </form>
+
+                    </div>
+
+
+
+                    <div style="display:inline-block; width:30%;margin-bottom: 600px; margin-left: 100px">
+                        <img src="images/l.png" style="border-radius: 8px; position: absolute">
+
+                    </div>
+
+                    <p align=center style=" position:absolute; margin-top: -280px; margin-left: 530px"><br>
+                        <font face="Segoe UI Light " size=8>Follow Us on</font>
+                    </p>
+                    <p align=center style=" position:absolute; margin-top: -200px; margin-left:-26px"><br>
+                        <img src="images/fb.png" width="3.5%" height="3.5%">
+                        <img src="images/1024px-Instagram_logo_2016.svg.png" width="3.5%" height="3.5%">
+                        <img src="images/twit.png" width="4.1%" height="4.1%">
+                        <img src="images/gp.png" width="3.7%" height="3.7%">
+
+
+                    </p>
+
+
+                    <div style="display:inline-block; width:30%;">
+                        <p style="margin-left: -20px;margin-right: 80px; margin-top: -544px; text-align: center; position:absolute">
+                            <font face="Segoe UI Light " size=8> Still have questions ? </p>
+                        <p align=center>
+
+                        </p>
+                        </font>
+
+                        <p align=center style="position: absolute; margin-left: -20px;margin-right: 80px; margin-top: -378px; line-height: 15px;">
+                            <font face="Segoe UI Light " size=3> Click the chat button above and chat with our expert. Or Simply email us the problem, and we’ll take care of you. Or call us at 94-888-258-842 if you'd like further clarification.</p>
+                        </b>
+                        <p align=center style="position: absolute; margin-left: 80px;margin-top: -235px; line-height: 15px;">
+                            <font face="Segoe UI Light " size=5px>You can pay with</b>
+                        </p>
+                        </font>
+
+                        <palign=center style=" margin-left: 65px; line-height: 15px;">
+                            <img src="images/payments.png" width=300px style="position: absolute; border-radius: 5px; margin-left:-42px;margin-top: -100px ">
+
+                    </div>
+
+                    <script>
+                        window.onscroll = function() {
+                            myFunction()
+                        };
+
+                        var header = document.getElementById("myHeader");
+                        var sticky = header.offsetTop;
+
+                        function myFunction() {
+                            if (window.pageYOffset > sticky) {
+                                header.classList.add("sticky");
+                            } else {
+                                header.classList.remove("sticky");
+                            }
+                        }
+
+                    </script>
+                    <script>
+                        function openNav() {
+                            document.getElementById("myNav").style.width = "100%";
+                        }
+
+                        function closeNav() {
+                            document.getElementById("myNav").style.width = "0%";
+                        }
+
+                    </script>
+
+
+</body>
+
+</html>

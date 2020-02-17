@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    img {
+        vertical-align: middle;
+    }
+
+    /* Position the image container (needed to position the left and right arrows) */
+
+    .container1 {
+
+        width: 40%;
+    }
+
+    /* Hide the images by default */
+
+    .mySlides {
+        display: none;
+    }
+
+    /* Add a pointer when hovering over the thumbnail images */
+
+    .cursor {
+        cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Number text (1/3 etc) */
+
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* Container for image text */
+
+    .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px;
+        width: 40%;
+        color: white;
+    }
+
+    .row:after {
+
+        display: table;
+
+    }
+
+    /* Six columns side by side */
+
+    .column {
+        float: left;
+        width: 10.66%;
+    }
+
+    /* Add a transparency effect for thumnbail images */
+
+    .demo {
+        opacity: 0.6;
+    }
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
+
+ .button1 { background-color: black; border: none; color: white; padding: 16.5px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 5px; }
+</style>
+
+<head>
+    <title>Pictza</title>
+    <link rel="stylesheet" type="text/css" href="css/pictzastyle.css">
+</head>
+
+<body>
+
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a href=""><img src = "images/ca1.jpg" width=20% height=20% class="imageho" style="border-radius: 8px;"></a>
+            <a href=""><img src = "images/ca2.png" width=20% height=20% class="imageho" style="border-radius: 8px;"></a>
+        </div>
+    </div>
+    <div id="myNav2" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+        <div class="overlay-content">
+
+            <a align=center>
+                <font face="Segoe UI Light" size=15>As a Customer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As an Artist</font>
+            </a>
+
+
+        </div>
+    </div>
+    <div class="top-container">
+
+        <a href=index.html><img src="images/p.jpg" width=6% height=6%>
+            <img src="images/pictza.png"></a>
+
+    </div>
+
+    <div class="topright">
+        <img src="images/user.png" width=55% height=55% class="imageho">
+    </div>
+    <div class="topright1">
+        <img src="images/cart.png" width=22% height=22% class="imageho">
+    </div>
+    <div class="header" id="myHeader">
+        <p align="center">
+            <font face="Segoe UI Light" size=5>
+                <a href=index.html> Home </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a span style="cursor:pointer" onclick="openNav()"> Categories </span></a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a href=artists.html> Artists </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a href=deals.html> Today's Deals </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a href=selling.html> Selling </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a href=help.html> Help Center </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <a href=about.html> About Us</a>
+        </p>
+    </div>
+
+
+
+    <p style="margin-top: 30px; margin-left: 50px; margin-bottom: -5px;">
+        <font face="Segoe UI Light" size=15>Banana Art Painting by Pablo Picaso </font>
+
+    </p>
+
+    <div class="zoom" style="display: inline-block; ">
+        <img src="images/Product/p1.jpg" width="200px" height="250px">
+
+    </div>
+
+    <div class="zoom" style="display: inline-block">
+        <img src="images/Product/p2.jpg" width="200px" height="250px">
+
+    </div>
+
+    <div class="zoom" style="display: inline-block">
+        <img src="images/Product/p3.jpg" width="200px" height="250px">
+
+    </div>
+
+    <div class="zoom" style="display: inline-block">
+        <img src="images/Product/p4.jpg" width="200px" height="250px">
+
+    </div>
+    <div class="zoom" style="display: inline-block">
+        <img src="images/Product/p4.jpg" width="200px" height="250px">
+
+    </div>
+    <div class="zoom" style="display: inline-block">
+        <img src="images/Product/p4.jpg" width="200px" height="250px">
+
+    </div>
+
+
+
+    <br><br>
+
+    <p style="margin-top: 30px; margin-left: 50px; margin-bottom: -5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <font face="Segoe UI Light" size=15>
+            $134.24 </font>
+
+        <font face="Segoe UI Light" size=5><s>$134.24</s>
+        </font>&nbsp;&nbsp;&nbsp;&nbsp;<button class="button1">Add to Cart</button>&nbsp;&nbsp;&nbsp;
+        <button class="button1">Buy Now</button>
+
+    </p>
+
+    <p style="margin-left: 50px; margin-top: -10px">
+        <font face="Segoe UI Light" size=7><b>Item Details</b></font>
+    </p>
+
+    <p style="margin-left: 50px; margin-top: -10px; margin-right: 50px">
+        <font face="Segoe UI Light" size=5>This art print displays sharp vivid images with a high degree of color accuracy on paper similar to that of a postcard or greeting card A member of the versatile family of art prints this highquality reproduction represents the best of both worlds quality and affordability This art print displays sharp, vivid images with a high degree of color accuracy. A member of the versatile family of art prints, this high-quality reproduction represents the best of both worlds: quality and affordability. Art prints are created on paper similar to that of a postcard or greeting card using a digital or offset lithography press.</font>
+    </p>
+
+    <p style="margin-left: 50px; margin-top: -10px; margin-right: 50px">
+        <font face="Segoe UI Light" size=5><b> 🚢 Ships in 1-2 days</b></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b> Rating </b> <img src="images/rating.png" width="16%" height="16%">
+    </p>
+
+    <p style="margin-left: 50px; margin-top: -10px">
+        <font face="Segoe UI Light" size=7><b>Customer Top Reviews</b></font>
+    </p>
+
+
+    <img src="images/rev.png" style="margin-left: 40px">
+
+    <hr style="margin-top: -60px;margin-left: 35px; position: absolute; width: 95%">
+    <p style="margin-left: 50px; margin-top: -30px">
+        <font face="Segoe UI Light" size=7><b>Similar Arts</b></font>
+    </p>
+
+    <img src="images/Category/abstract.jpg" alt="Avatar" class="image23" style="margin-left: 50px">&nbsp;&nbsp;
+    <img src="images/Category/landscape.jpg" alt="Avatar" class="image23">&nbsp;&nbsp;
+    <img src="images/Category/conceptual.jpg" alt="Avatar" class="image23">&nbsp;&nbsp;
+    <img src="images/Category/grass.jpg" alt="Avatar" class="image23">&nbsp;&nbsp;
+    <img src="images/Category/magic.jpg" alt="Avatar" class="image23">&nbsp;&nbsp;
+    <img src="images/Category/history.jpg" alt="Avatar" class="image23">
+
+    <hr style="margin-top: 10px;margin-left: 35px; position: absolute; margin-top: 20px; width: 95%">
+
+    <script>
+        window.onscroll = function() {
+            myFunction()
+        };
+
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+
+    </script>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+
+    </script>
+
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
