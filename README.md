@@ -37,4 +37,4 @@ and buy the latest collection of contemporary art online from anywhere in the
 world. 
 
 
-[Wireframes.pdf](https://github.com/ulidu/Pictza-Online-Art-Gallery-Template/blob/master/Wireframes.pdf)
+[Wireframes.pdf](https://github.com/ulidu/Pictza-Online-Art-Gallery-Template/blob/master/updated_Intro.pdf)
